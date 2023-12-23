@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap5 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  zloj
+</a>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">ZLOJ</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul>
+        <li>
+            <a href="/">主页</a>
+        </li>
+        <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        工具
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="/ide">IDE</a></li>
+        <li><a class="dropdown-item" href="/photo">图床</a></li>
+        <li><a class="dropdown-item" href="/paste">云剪贴板</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<center>
+    <form action="/user/register/" method="POST">
+        {% csrf_token %}
+        <label><input type="text" name="user" placeholder="UID"></label>
+        <label><input type="password" name="passwd" placeholder="密码"></label>
+        <p style="color:red;">{{ warnings }}</p>
+        <input type="submit" value="提交">
+    </form>
+</center>
+</body>
+</html>
